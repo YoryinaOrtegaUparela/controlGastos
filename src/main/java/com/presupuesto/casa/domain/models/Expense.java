@@ -46,7 +46,6 @@ public class Expense {
         private User user;
         private Category category;
         private Boolean fixedExpense;
-        // TODO información del link de pago y NIC del recibo
         private String resource;
         private Boolean isDivisible;
 
