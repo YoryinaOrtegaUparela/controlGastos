@@ -35,15 +35,14 @@ public class ExpenseImpl {
 
 
     private Expense mapperExpenseEntityForExpense(ExpenseEntity expenseEntity) {
-        return new Expense.BuilderExpense()
-                .setExecuteExpenseDate(expenseEntity.getExecuteExpenseDate())
-                .setAmount(expenseEntity.getAmount())
-                .setUser(new User.BuilderUser().setIdentifier(expenseEntity.getUser()).build())
-                .setCategory(new Category())
-                .setFixedExpense(expenseEntity.getFixedExpense())
-                .setResource(expenseEntity.getResource())
-                .setDivisible(expenseEntity.getDivisible())
-                .setAmount(expenseEntity.getAmount())
+        return  Expense.builder()
+                .executeExpenseDate(expenseEntity.getExecuteExpenseDate())
+                .amount(expenseEntity.getAmount())
+                .user(new User.BuilderUser().setIdentifier(expenseEntity.getUser()).build())
+                .category(new Category())
+                .fixedExpense(expenseEntity.getFixedExpense())
+                .resource(expenseEntity.getResource())
+                .isDivisible(expenseEntity.getDivisible())
                 .build();
     }
 }
