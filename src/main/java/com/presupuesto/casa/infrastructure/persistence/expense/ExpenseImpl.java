@@ -38,11 +38,11 @@ public class ExpenseImpl {
         return  Expense.builder()
                 .executeExpenseDate(expenseEntity.getExecuteExpenseDate())
                 .amount(expenseEntity.getAmount())
-                .user(new User.BuilderUser().setIdentifier(1L).build())
-                .category(new Category())
+                .user(User.builder().identifier(expenseEntity.getIdentifierUser()).build())
+                .category(Category.builder().build())
                 .fixedExpense(expenseEntity.getFixedExpense())
                 .resource(expenseEntity.getResource())
-                .isDivisible(expenseEntity.getDivisible())
+                .isDivisible(expenseEntity.getIsDivisible())
                 .build();
     }
 }

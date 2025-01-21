@@ -1,8 +1,6 @@
 package com.presupuesto.casa.domain.models;
 
 import lombok.*;
-
-
 import java.time.LocalDateTime;
 
 @Getter
@@ -20,8 +18,4 @@ public class Expense {
     // TODO información del link de pago y NIC del recibo
     private String resource;
     private Boolean isDivisible;
-
-
-
-
 }
