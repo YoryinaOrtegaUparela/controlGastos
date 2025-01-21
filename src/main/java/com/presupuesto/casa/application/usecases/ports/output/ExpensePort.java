@@ -12,5 +12,5 @@ import java.util.List;
  */
 @Repository
 public interface ExpensePort extends JpaRepository<ExpenseEntity, Long> {
-    List<ExpenseEntity> getExpensesByUser(Long userID);
+    List<ExpenseEntity> getExpensesByAmount(Long userID);
 }

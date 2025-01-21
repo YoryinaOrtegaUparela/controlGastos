@@ -21,7 +21,7 @@ public class ExpenseImpl {
     }
 
     public List<Expense> getExpenses(Long userID, LocalDateTime initDate, LocalDateTime endDate) {
-        List<ExpenseEntity> listExpenseEntity = expensePort.getExpensesByUser(userID);
+        List<ExpenseEntity> listExpenseEntity = expensePort.getExpensesByAmount(userID);
         return mapperExpenseEntityListToExpenseList(listExpenseEntity);
     }
 
@@ -35,15 +35,14 @@ public class ExpenseImpl {
 
 
     private Expense mapperExpenseEntityForExpense(ExpenseEntity expenseEntity) {
-        return new Expense.BuilderExpense()
-                .setExecuteExpenseDate(expenseEntity.getExecuteExpenseDate())
-                .setAmount(expenseEntity.getAmount())
-                .setUser(new User.BuilderUser().setIdentifier(expenseEntity.getUser()).build())
-                .setCategory(new Category())
-                .setFixedExpense(expenseEntity.getFixedExpense())
-                .setResource(expenseEntity.getResource())
-                .setDivisible(expenseEntity.getDivisible())
-                .setAmount(expenseEntity.getAmount())
+        return  Expense.builder()
+                .executeExpenseDate(expenseEntity.getExecuteExpenseDate())
+                .amount(expenseEntity.getAmount())
+                .user(new User.BuilderUser().setIdentifier(1L).build())
+                .category(new Category())
+                .fixedExpense(expenseEntity.getFixedExpense())
+                .resource(expenseEntity.getResource())
+                .isDivisible(expenseEntity.getDivisible())
                 .build();
     }
 }
