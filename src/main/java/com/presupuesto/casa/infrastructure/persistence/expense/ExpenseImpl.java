@@ -21,7 +21,7 @@ public class ExpenseImpl {
     }
 
     public List<Expense> getExpenses(Long userID, LocalDateTime initDate, LocalDateTime endDate) {
-        List<ExpenseEntity> listExpenseEntity = expensePort.getExpensesByUser(userID);
+        List<ExpenseEntity> listExpenseEntity = expensePort.getExpensesByAmount(userID);
         return mapperExpenseEntityListToExpenseList(listExpenseEntity);
     }
 
@@ -38,7 +38,7 @@ public class ExpenseImpl {
         return  Expense.builder()
                 .executeExpenseDate(expenseEntity.getExecuteExpenseDate())
                 .amount(expenseEntity.getAmount())
-                .user(new User.BuilderUser().setIdentifier(expenseEntity.getUser()).build())
+                .user(new User.BuilderUser().setIdentifier(1L).build())
                 .category(new Category())
                 .fixedExpense(expenseEntity.getFixedExpense())
                 .resource(expenseEntity.getResource())
