@@ -13,9 +13,9 @@ public class ExpenseImpl implements ExpensePort {
     @Override
     public List<Expense> getExpenses(Long userID, LocalDateTime initDate, LocalDateTime endDate) {
         List<Expense> list = new ArrayList<Expense>();
+        Expense expense =Expense.builder().amount(45L).build();
+        Expense expense2=Expense.builder().amount(45L).build();
 
-        Expense expense =  new Expense.BuilderExpense().setAmount(45L).build();
-        Expense expense2 =  new Expense.BuilderExpense().setAmount(45L).build();
 
 
         list.add(expense);
