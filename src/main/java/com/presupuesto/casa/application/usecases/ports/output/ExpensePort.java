@@ -1,16 +1,11 @@
 package com.presupuesto.casa.application.usecases.ports.output;
 
-import com.presupuesto.casa.infrastructure.persistence.expense.ExpenseEntity;
-import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.stereotype.Repository;
-import java.time.LocalDateTime;
+import com.presupuesto.casa.domain.models.Expense;
+import com.presupuesto.casa.infrastructure.entity.ExpenseEntity;
+
 import java.util.List;
 
-/**
- * Repository interface for Expense entity.
- * Provides CRUD operations and custom query methods through JpaRepository.
- */
-@Repository
-public interface ExpensePort extends JpaRepository<ExpenseEntity, Long> {
-    List<ExpenseEntity> getExpensesByAmount(Long userID);
+
+public interface ExpensePort {
+    List<Expense>  getExpensesByUserId(Long userID);
 }

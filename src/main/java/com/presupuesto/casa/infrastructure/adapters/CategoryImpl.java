@@ -1,4 +1,4 @@
-package com.presupuesto.casa.infrastructure.persistence;
+package com.presupuesto.casa.infrastructure.adapters;
 
 import com.presupuesto.casa.application.usecases.ports.output.CategoryPort;
 

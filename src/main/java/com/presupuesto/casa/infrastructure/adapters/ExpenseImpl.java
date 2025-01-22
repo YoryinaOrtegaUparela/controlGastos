@@ -1,9 +1,11 @@
-package com.presupuesto.casa.infrastructure.persistence.expense;
+package com.presupuesto.casa.infrastructure.adapters;
 
 import com.presupuesto.casa.application.usecases.ports.output.ExpensePort;
 import com.presupuesto.casa.domain.models.Category;
 import com.presupuesto.casa.domain.models.Expense;
 import com.presupuesto.casa.domain.models.User;
+import com.presupuesto.casa.infrastructure.entity.ExpenseEntity;
+import com.presupuesto.casa.infrastructure.repository.ExpenseRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.time.LocalDateTime;
@@ -11,19 +13,20 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Service
-public class ExpenseImpl {
+public class ExpenseImpl implements ExpensePort  {
+
 
     @Autowired
-    private final ExpensePort expensePort;
+    private ExpenseRepository expenseRepository;
 
-    public ExpenseImpl(ExpensePort expensePort) {
-        this.expensePort = expensePort;
-    }
 
-    public List<Expense> getExpenses(Long userID, LocalDateTime initDate, LocalDateTime endDate) {
-        List<ExpenseEntity> listExpenseEntity = expensePort.getExpensesByAmount(userID);
+    @Override
+    public List<Expense> getExpensesByUserId(Long userID) {
+        List<ExpenseEntity> listExpenseEntity = expenseRepository.getExpensesByAmount(userID);
         return mapperExpenseEntityListToExpenseList(listExpenseEntity);
     }
+
+
 
     public List<Expense> mapperExpenseEntityListToExpenseList(List<ExpenseEntity> listExpenseEntity) {
         List<Expense> list = new ArrayList<Expense>();

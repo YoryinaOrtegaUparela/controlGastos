@@ -1,4 +1,4 @@
-package com.presupuesto.casa.infrastructure.persistence.expense;
+package com.presupuesto.casa.infrastructure.entity;
 
 import jakarta.persistence.*;
 

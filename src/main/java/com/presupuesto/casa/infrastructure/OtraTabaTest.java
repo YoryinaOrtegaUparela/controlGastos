@@ -3,7 +3,7 @@ package com.presupuesto.casa.infrastructure;
 import jakarta.persistence.*;
 import lombok.*;
 
-@Table(name = "TABLA2")
+@Table(name = "JERARQUIA")
 @Entity
 @Getter
 @Setter
@@ -17,5 +17,6 @@ public class OtraTabaTest {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String nombre;
+    private Long idpadre;
+    private Long idhijo;
 }
