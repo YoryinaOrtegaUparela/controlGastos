@@ -1,7 +1,8 @@
 package com.presupuesto.casa.domain.models;
 
 import lombok.*;
-import java.time.LocalDateTime;
+
+import java.time.LocalDate;
 
 @Getter
 @Setter
@@ -10,10 +11,12 @@ import java.time.LocalDateTime;
 @Builder
 @ToString
 public class Expense {
-    private LocalDateTime executeExpenseDate;
+    private Long id;
+    private Long homeId;
+    private LocalDate executeExpenseDate;
     private Long amount;
     private User user;
-    private Category category;
+    // private Category category;
     private Boolean fixedExpense;
     // TODO información del link de pago y NIC del recibo
     private String resource;

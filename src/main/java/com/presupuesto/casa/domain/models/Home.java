@@ -15,7 +15,7 @@ public class Home {
     // para que solo se puedan asignar gastos a usuarios de esta casa
     private List<User> people;
     //Identificador de la casa: casa new port, casa prado verde
-    private String identifier;
+    private Long homeId;
     //Todos los gastos asignados a una casa
     private List<Expense> expenses;
 }
