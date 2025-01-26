@@ -1,6 +1,9 @@
 package com.presupuesto.casa.application.usecases.ports.input.home;
 
+import com.presupuesto.casa.domain.models.Home;
+
+import java.util.List;
+
 public interface GetHomeService {
-    //Construye las casas
-    //Mostrar las casas
+    List<Home> getHome(Long homeId);
 }
