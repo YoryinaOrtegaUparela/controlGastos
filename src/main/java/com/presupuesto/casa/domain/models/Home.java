@@ -4,8 +4,6 @@ import lombok.*;
 
 import java.util.List;
 
-@Getter
-@Setter
 @Builder
 @ToString
 @NoArgsConstructor
@@ -18,4 +16,28 @@ public class Home {
     private Long homeId;
     //Todos los gastos asignados a una casa
     private List<Expense> expenses;
+
+    public List<User> getPeople() {
+        return people;
+    }
+
+    public void setPeople(List<User> people) {
+        this.people = people;
+    }
+
+    public Long getHomeId() {
+        return homeId;
+    }
+
+    public void setHomeId(Long homeId) {
+        this.homeId = homeId;
+    }
+
+    public List<Expense> getExpenses() {
+        return expenses;
+    }
+
+    public void setExpenses(List<Expense> expenses) {
+        this.expenses = expenses;
+    }
 }

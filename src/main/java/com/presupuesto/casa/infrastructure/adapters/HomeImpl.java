@@ -25,11 +25,11 @@ public class HomeImpl implements HomePort {
 
     @Override
     public Home saveHome(Home home) {
-        return mapperHome.homeEntityToHome(homeRepository.saveHome(mapperHome.homeToHomeEntity(home)));
+        return mapperHome.homeEntityToHome(homeRepository.save(mapperHome.homeToHomeEntity(home)));
     }
 
     @Override
     public void deleteHome(Long homeId) {
-        homeRepository.deleteHomeById(homeId);
+        homeRepository.deleteByHomeId(homeId);
     }
 }

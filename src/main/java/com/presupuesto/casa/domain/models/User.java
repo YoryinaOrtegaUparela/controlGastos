@@ -2,8 +2,6 @@ package com.presupuesto.casa.domain.models;
 
 import lombok.*;
 
-@Getter
-@Setter
 @Builder
 @ToString
 @NoArgsConstructor
@@ -11,5 +9,20 @@ import lombok.*;
 public class User {
     private Long identifier;
     private String name;
-    private String email;
+
+    public Long getIdentifier() {
+        return identifier;
+    }
+
+    public void setIdentifier(Long identifier) {
+        this.identifier = identifier;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 }

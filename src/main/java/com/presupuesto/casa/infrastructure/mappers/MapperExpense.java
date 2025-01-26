@@ -3,12 +3,16 @@ package com.presupuesto.casa.infrastructure.mappers;
 import com.presupuesto.casa.domain.models.Expense;
 import com.presupuesto.casa.infrastructure.entity.ExpenseEntity;
 import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
 
 import java.util.List;
 
-@Mapper
+@Mapper(componentModel = "spring")
 public interface MapperExpense {
-    List<Expense> expenseEntityListToExpenseList(List<ExpenseEntity> listExpenseEntity);
+
+    @Mapping(target = "user.identifier", source = "identifierUser")
     Expense expenseEntityToExpense(ExpenseEntity listExpenseEntity);
+    List<Expense> expenseEntityListToExpenseList(List<ExpenseEntity> listExpenseEntity);
+
     ExpenseEntity expenseToExpenseEntity(Expense expense);
 }
