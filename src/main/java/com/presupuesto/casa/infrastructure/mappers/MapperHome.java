@@ -8,6 +8,6 @@ import java.util.List;
 @Mapper
 public interface MapperHome {
     List<Home> homeEntityListToHomeList(List<HomeEntity> listHomeEntity);
-    Home homeEntityToHome(HomeEntity listHomeEntity);
+    Home homeEntityToHome(HomeEntity homeEntity);
     HomeEntity homeToHomeEntity(Home home);
 }

@@ -1,7 +1,9 @@
 package com.presupuesto.casa.application.usecases.ports.input.category;
 
+import com.presupuesto.casa.domain.models.Category;
+import java.util.List;
+
+@FunctionalInterface
 public interface GetCategoryService {
-
-    //TODO agregar los servicios para listar, agregar, borrar, modificar las categorias.
-
+    List<Category> getCategories();
 }
