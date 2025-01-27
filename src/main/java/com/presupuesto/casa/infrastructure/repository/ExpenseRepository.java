@@ -10,6 +10,7 @@ import java.util.List;
 @Repository
 public interface ExpenseRepository extends JpaRepository<ExpenseEntity, Long> {
     List<ExpenseEntity> findByHomeIdAndExecuteExpenseDateBetween(Long homeId, LocalDate initDate, LocalDate endDate);
-    ExpenseEntity saveExpense(ExpenseEntity expenseEntity);
+
+
     void deleteExpenseById(Long id);
 }

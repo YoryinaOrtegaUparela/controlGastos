@@ -5,7 +5,7 @@ import com.presupuesto.casa.infrastructure.entity.HomeEntity;
 import org.mapstruct.Mapper;
 import java.util.List;
 
-@Mapper
+@Mapper(componentModel = "spring")
 public interface MapperHome {
     List<Home> homeEntityListToHomeList(List<HomeEntity> listHomeEntity);
     Home homeEntityToHome(HomeEntity homeEntity);

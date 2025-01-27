@@ -7,11 +7,11 @@ import org.mapstruct.Mapping;
 
 import java.util.List;
 
-@Mapper
+@Mapper(componentModel = "spring")
 public interface MapperExpense {
-    List<Expense> expenseEntityListToExpenseList(List<ExpenseEntity> listExpenseEntity);
     @Mapping(target = "category.categoryId", source = "categoryId")
+    @Mapping(target = "user.identifier", source = "identifierUser")
     Expense expenseEntityToExpense(ExpenseEntity listExpenseEntity);
-    @Mapping(target = "categoryId", source = "category.categoryId")
+    List<Expense> expenseEntityListToExpenseList(List<ExpenseEntity> listExpenseEntity);
     ExpenseEntity expenseToExpenseEntity(Expense expense);
 }

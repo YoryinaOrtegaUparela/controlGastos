@@ -9,6 +9,5 @@ import java.util.List;
 @Repository
 public interface HomeRepository extends JpaRepository<HomeEntity, Long> {
     List<HomeEntity> findByIdentifierUser(Long identifierUSer);
-    HomeEntity saveHome(HomeEntity homeEntity);
-    void deleteHomeById(Long homeId);
+    void deleteByHomeId(Long homeId);
 }
