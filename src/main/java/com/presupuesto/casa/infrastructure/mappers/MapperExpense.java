@@ -9,8 +9,7 @@ import java.util.List;
 
 @Mapper(componentModel = "spring")
 public interface MapperExpense {
-    @Mapping(target = "category.categoryId", source = "categoryId")
-    @Mapping(target = "user.identifier", source = "identifierUser")
+    @Mapping(target = "person.personId", source = "identifierUser")
     Expense expenseEntityToExpense(ExpenseEntity listExpenseEntity);
     List<Expense> expenseEntityListToExpenseList(List<ExpenseEntity> listExpenseEntity);
     ExpenseEntity expenseToExpenseEntity(Expense expense);

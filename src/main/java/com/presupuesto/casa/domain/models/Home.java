@@ -9,21 +9,10 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Home {
-    //Cada casa tiene una lista de usuarios asignada,
-    // para que solo se puedan asignar gastos a usuarios de esta casa
-    private List<User> people;
-    //Identificador de la casa: casa new port, casa prado verde
     private Long homeId;
-    //Todos los gastos asignados a una casa
+    private String name;
+    private List<Person> personHome;
     private List<Expense> expenses;
-
-    public List<User> getPeople() {
-        return people;
-    }
-
-    public void setPeople(List<User> people) {
-        this.people = people;
-    }
 
     public Long getHomeId() {
         return homeId;
@@ -33,6 +22,22 @@ public class Home {
         this.homeId = homeId;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public List<Person> getPersonHome() {
+        return personHome;
+    }
+
+    public void setPersonHome(List<Person> personHome) {
+        this.personHome = personHome;
+    }
+
     public List<Expense> getExpenses() {
         return expenses;
     }
@@ -40,4 +45,8 @@ public class Home {
     public void setExpenses(List<Expense> expenses) {
         this.expenses = expenses;
     }
+    //Cada casa tiene una lista de usuarios asignada,
+    // para que solo se puedan asignar gastos a usuarios de esta casa
+    //Identificador de la casa: casa new port, casa prado verde
+    //Todos los gastos asignados a una casa
 }

@@ -6,16 +6,16 @@ import lombok.*;
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
-public class User {
-    private Long identifier;
+public class Person {
+    private Long personId;
     private String name;
 
-    public Long getIdentifier() {
-        return identifier;
+    public Long getPersonId() {
+        return personId;
     }
 
-    public void setIdentifier(Long identifier) {
-        this.identifier = identifier;
+    public void setPersonId(Long personId) {
+        this.personId = personId;
     }
 
     public String getName() {

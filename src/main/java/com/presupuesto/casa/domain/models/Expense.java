@@ -1,10 +1,6 @@
 package com.presupuesto.casa.domain.models;
 
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
 import lombok.*;
-
 import java.time.LocalDate;
 
 @NoArgsConstructor
@@ -16,7 +12,7 @@ public class Expense {
     private Long homeId;
     private LocalDate executeExpenseDate;
     private Long amount;
-    private User user;
+    private Person person;
     private Category category;
     private Boolean fixedExpense;
     // TODO información del link de pago y NIC del recibo
@@ -55,12 +51,12 @@ public class Expense {
         this.amount = amount;
     }
 
-    public User getUser() {
-        return user;
+    public Person getPerson() {
+        return person;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setPerson(Person person) {
+        this.person = person;
     }
 
     public Boolean getFixedExpense() {

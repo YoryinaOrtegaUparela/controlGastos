@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.LocalDate;
+import java.util.Set;
 
 @Table(name = "ExpenseEntity",schema = "EXPENSES")
 @Entity
@@ -16,13 +17,22 @@ public class ExpenseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     private Long homeId;
+
     private LocalDate executeExpenseDate;
+
     private Long amount;
+
     private Long identifierUser;
-    private Long categoryId;
+
+    @ManyToMany
+    private Set<CategoryEntity> category;
+
     private Boolean fixedExpense;
+
     private String resource;
+
     private Boolean isDivisible;
 
     public Long getId() {

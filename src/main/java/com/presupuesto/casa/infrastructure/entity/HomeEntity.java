@@ -1,7 +1,12 @@
 package com.presupuesto.casa.infrastructure.entity;
 
+import com.presupuesto.casa.domain.models.Expense;
+import com.presupuesto.casa.domain.models.Person;
 import jakarta.persistence.*;
 import lombok.*;
+
+import java.util.List;
+import java.util.Set;
 
 @Table(name = "HomeEntity",schema = "EXPENSES")
 @Entity
@@ -13,22 +18,9 @@ public class HomeEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long homeId;
+    private String name;
 
-    private Long identifierUser;
+    @ManyToMany
+    private Set<ExpenseEntity> expenses;
 
-    public Long getHomeId() {
-        return homeId;
     }
-
-    public void setHomeId(Long homeId) {
-        this.homeId = homeId;
-    }
-
-    public Long getIdentifierUser() {
-        return identifierUser;
-    }
-
-    public void setIdentifierUser(Long identifierUser) {
-        this.identifierUser = identifierUser;
-    }
-}
