@@ -21,10 +21,8 @@ public class ExpenseEntity {
     private Long homeId;
     private LocalDate executeExpenseDate;
     private Long amount;
-    //Es otro objeto
     private Long identifierUser;
-    //Es otro objeto
-    // private String category;
+    private Long categoryId;
     private Boolean fixedExpense;
     private String resource;
     private Boolean isDivisible;

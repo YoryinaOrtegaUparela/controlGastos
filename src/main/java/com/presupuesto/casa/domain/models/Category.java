@@ -9,7 +9,7 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Category {
+    private Long categoryId;
     private String category;
-    //seria una lista de subcategory o subcategory contiene una lista de subcategorys
     private SubCategory subCategory;
 }

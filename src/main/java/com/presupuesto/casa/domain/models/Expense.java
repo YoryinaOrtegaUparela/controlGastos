@@ -16,7 +16,7 @@ public class Expense {
     private LocalDate executeExpenseDate;
     private Long amount;
     private User user;
-    // private Category category;
+    private Category category;
     private Boolean fixedExpense;
     // TODO información del link de pago y NIC del recibo
     private String resource;
