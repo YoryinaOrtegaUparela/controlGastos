@@ -1,11 +1,11 @@
 package com.presupuesto.casa.infrastructure.entity;
 
-import com.presupuesto.casa.domain.models.Expense;
-import com.presupuesto.casa.domain.models.Person;
 import jakarta.persistence.*;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
 
-import java.util.List;
 import java.util.Set;
 
 @Table(name = "HomeEntity",schema = "EXPENSES")
@@ -20,7 +20,19 @@ public class HomeEntity {
     private Long homeId;
     private String name;
 
-    @ManyToMany
-    private Set<ExpenseEntity> expenses;
-
+    public String getName() {
+        return name;
     }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Long getHomeId() {
+        return homeId;
+    }
+
+    public void setHomeId(Long homeId) {
+        this.homeId = homeId;
+    }
+}

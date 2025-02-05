@@ -16,6 +16,6 @@ public class GetGetHomeServiceImpl implements GetHomeService {
 
     @Override
     public List<Home> getHome(Long userId) {
-        return homePort.getHomeByIdentifierUser(userId);
+        return List.of();
     }
 }

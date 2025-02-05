@@ -1,10 +1,12 @@
 package com.presupuesto.casa.infrastructure.entity;
 
 import jakarta.persistence.*;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 import java.time.LocalDate;
-import java.util.Set;
 
 @Table(name = "ExpenseEntity",schema = "EXPENSES")
 @Entity
@@ -18,22 +20,31 @@ public class ExpenseEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private Long homeId;
+    @OneToOne
+    private HomeEntity homeId;
 
     private LocalDate executeExpenseDate;
 
     private Long amount;
 
-    private Long identifierUser;
+    private Long personId;
 
-    @ManyToMany
-    private Set<CategoryEntity> category;
+    @OneToOne
+    private CategoryEntity category;
 
     private Boolean fixedExpense;
 
     private String resource;
 
     private Boolean isDivisible;
+
+    public CategoryEntity getCategory() {
+        return category;
+    }
+
+    public void setCategory(CategoryEntity category) {
+        this.category = category;
+    }
 
     public Long getId() {
         return id;
@@ -43,11 +54,11 @@ public class ExpenseEntity {
         this.id = id;
     }
 
-    public Long getHomeId() {
+    public HomeEntity getHomeId() {
         return homeId;
     }
 
-    public void setHomeId(Long homeId) {
+    public void setHomeId(HomeEntity homeId) {
         this.homeId = homeId;
     }
 
@@ -67,12 +78,12 @@ public class ExpenseEntity {
         this.amount = amount;
     }
 
-    public Long getIdentifierUser() {
-        return identifierUser;
+    public Long getPersonId() {
+        return personId;
     }
 
-    public void setIdentifierUser(Long identifierUser) {
-        this.identifierUser = identifierUser;
+    public void setPersonId(Long identifierUser) {
+        this.personId = identifierUser;
     }
 
     public Boolean getFixedExpense() {
@@ -91,11 +102,11 @@ public class ExpenseEntity {
         this.resource = resource;
     }
 
-    public Boolean getDivisible() {
+    public Boolean getIsDivisible() {
         return isDivisible;
     }
 
-    public void setDivisible(Boolean divisible) {
+    public void setIsDivisible(Boolean divisible) {
         isDivisible = divisible;
     }
 }

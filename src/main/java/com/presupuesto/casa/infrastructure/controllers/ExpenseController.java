@@ -42,7 +42,7 @@ ExpenseController {
         return new ResponseEntity<>(expenses, HttpStatus.OK);
     }
 
-    @PostMapping(path = "/save", produces = "application/json")
+    @PostMapping(path = "/", produces = "application/json")
     public ResponseEntity<Expense> saveExpense(@RequestBody Expense expense) {
 
         Expense expenseSaved = saveExpenseService.saveExpense(expense);
@@ -51,7 +51,7 @@ ExpenseController {
     }
 
     @ResponseStatus
-    @DeleteMapping(path = "/{expenseId}/delete", produces = "application/json")
+    @DeleteMapping(path = "/{expenseId}", produces = "application/json")
     public void deleteExpense(@PathVariable Long expenseId) {
         deleteExpenseService.deleteExpense(expenseId);
     }

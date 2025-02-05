@@ -1,7 +1,10 @@
 package com.presupuesto.casa.infrastructure.entity;
 
 import jakarta.persistence.*;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 import java.util.Set;
 

@@ -9,8 +9,5 @@ import java.util.List;
 
 @Repository
 public interface ExpenseRepository extends JpaRepository<ExpenseEntity, Long> {
-    List<ExpenseEntity> findByHomeIdAndExecuteExpenseDateBetween(Long homeId, LocalDate initDate, LocalDate endDate);
-
-
-    void deleteExpenseById(Long id);
+    List<ExpenseEntity> findByHomeId_homeIdAndExecuteExpenseDateBetween(Long homeId, LocalDate initDate, LocalDate endDate);
 }

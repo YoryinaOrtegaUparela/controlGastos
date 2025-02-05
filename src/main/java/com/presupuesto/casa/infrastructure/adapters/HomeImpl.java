@@ -7,8 +7,6 @@ import com.presupuesto.casa.infrastructure.repository.HomeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-
 @Service
 public class HomeImpl implements HomePort {
 
@@ -19,17 +17,12 @@ public class HomeImpl implements HomePort {
     private MapperHome mapperHome;
 
     @Override
-    public List<Home> getHomeByIdentifierUser(Long identifierUser) {
-        return mapperHome.homeEntityListToHomeList(homeRepository.findByIdentifierUser(identifierUser));
-    }
-
-    @Override
     public Home saveHome(Home home) {
         return mapperHome.homeEntityToHome(homeRepository.save(mapperHome.homeToHomeEntity(home)));
     }
 
     @Override
     public void deleteHome(Long homeId) {
-        homeRepository.deleteByHomeId(homeId);
+        homeRepository.deleteById(homeId);
     }
 }

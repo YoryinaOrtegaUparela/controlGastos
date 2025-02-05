@@ -23,20 +23,21 @@ public class ExpenseImpl implements ExpensePort {
     @Override
     public List<Expense> getExpensesByHomeIdForDate(Long homeId, LocalDate initDate, LocalDate endDate) {
         List<ExpenseEntity> listExpenseEntity =
-                expenseRepository.findByHomeIdAndExecuteExpenseDateBetween(homeId, initDate, endDate);
+                expenseRepository.findByHomeId_homeIdAndExecuteExpenseDateBetween(homeId, initDate, endDate);
 
         return mapperExpense.expenseEntityListToExpenseList(listExpenseEntity);
     }
 
     @Override
     public Expense saveExpense(Expense expense) {
+        ExpenseEntity expenseEntity1 = mapperExpense.expenseToExpenseEntity(expense);
         ExpenseEntity expenseEntity =
-                expenseRepository.save(mapperExpense.expenseToExpenseEntity(expense));
+                expenseRepository.save(expenseEntity1);
         return mapperExpense.expenseEntityToExpense(expenseEntity);
     }
 
     @Override
     public void deleteExpense(Long id) {
-        expenseRepository.deleteExpenseById(id);
+        expenseRepository.deleteById(id);
     }
 }

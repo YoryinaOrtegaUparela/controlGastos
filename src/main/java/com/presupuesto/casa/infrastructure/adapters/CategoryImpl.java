@@ -6,6 +6,7 @@ import com.presupuesto.casa.infrastructure.mappers.MapperCategory;
 import com.presupuesto.casa.infrastructure.repository.CategoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 import java.util.List;
 
 @Service
@@ -20,7 +21,8 @@ public class CategoryImpl implements CategoryPort {
 
     @Override
     public List<Category> getCategories() {
-        return categoryRepository.getAll();
+        return mapperCategory.categoryListToCategory(categoryRepository.findAll());
+
     }
 
     @Override

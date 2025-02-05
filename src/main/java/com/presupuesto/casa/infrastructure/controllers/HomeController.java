@@ -31,7 +31,7 @@ public class HomeController {
         return new ResponseEntity<>(homes, HttpStatus.OK);
     }
 
-    @PostMapping(path = "/save", produces = "application/json")
+    @PostMapping(path = "/", produces = "application/json")
     public ResponseEntity<Home> saveHome(@RequestBody Home home) {
 
         Home homeSaved = saveHomeService.saveHome(home);
@@ -40,7 +40,7 @@ public class HomeController {
     }
 
     @ResponseStatus
-    @DeleteMapping(path = "/{expenseId}/delete", produces = "application/json")
+    @DeleteMapping(path = "/{expenseId}", produces = "application/json")
     public void deleteHome(@PathVariable Long homeId) {
         deleteHomeService.deleteHome(homeId);
     }

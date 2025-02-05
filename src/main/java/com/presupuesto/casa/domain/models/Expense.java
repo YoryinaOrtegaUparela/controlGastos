@@ -1,6 +1,10 @@
 package com.presupuesto.casa.domain.models;
 
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
+
 import java.time.LocalDate;
 
 @NoArgsConstructor
@@ -9,7 +13,7 @@ import java.time.LocalDate;
 @ToString
 public class Expense {
     private Long id;
-    private Long homeId;
+    private Home homeId;
     private LocalDate executeExpenseDate;
     private Long amount;
     private Person person;
@@ -27,11 +31,11 @@ public class Expense {
         this.id = id;
     }
 
-    public Long getHomeId() {
+    public Home getHomeId() {
         return homeId;
     }
 
-    public void setHomeId(Long homeId) {
+    public void setHomeId(Home homeId) {
         this.homeId = homeId;
     }
 
@@ -75,11 +79,19 @@ public class Expense {
         this.resource = resource;
     }
 
-    public Boolean getDivisible() {
+    public Boolean getIsDivisible() {
         return isDivisible;
     }
 
-    public void setDivisible(Boolean divisible) {
+    public void setIsDivisible(Boolean divisible) {
         isDivisible = divisible;
+    }
+
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
     }
 }
