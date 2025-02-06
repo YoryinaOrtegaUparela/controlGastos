@@ -6,6 +6,7 @@ import lombok.Builder;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
+@Table(name = "SubCategoryEntity",schema = "EXPENSES")
 @Entity
 @Builder
 @ToString
@@ -17,7 +18,6 @@ public class SubCategoryEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String subCategoryName;
-
 
     public Long getId() {
         return id;
