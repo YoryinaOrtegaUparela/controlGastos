@@ -1,4 +1,8 @@
 package com.presupuesto.casa.application.usecases.ports.input.user;
 
+import com.presupuesto.casa.domain.models.Person;
+
+@FunctionalInterface
 public interface SaveUserService {
+    Person saveUser(Person person);
 }

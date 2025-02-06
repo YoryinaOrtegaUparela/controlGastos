@@ -19,6 +19,7 @@ public class HomeEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long homeId;
     private String name;
+    private Long personId;
 
     public String getName() {
         return name;
@@ -34,5 +35,13 @@ public class HomeEntity {
 
     public void setHomeId(Long homeId) {
         this.homeId = homeId;
+    }
+
+    public Long getPersonId() {
+        return personId;
+    }
+
+    public void setPersonId(Long personId) {
+        this.personId = personId;
     }
 }

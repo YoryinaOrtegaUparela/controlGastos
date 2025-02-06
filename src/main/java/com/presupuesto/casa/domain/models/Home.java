@@ -14,6 +14,7 @@ import java.util.List;
 public class Home {
     private Long homeId;
     private String name;
+    private Long personId;
 
     public Long getHomeId() {
         return homeId;
@@ -29,6 +30,14 @@ public class Home {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public Long getPersonId() {
+        return personId;
+    }
+
+    public void setPersonId(Long personId) {
+        this.personId = personId;
     }
     //Cada casa tiene una lista de usuarios asignada,
     // para que solo se puedan asignar gastos a usuarios de esta casa
