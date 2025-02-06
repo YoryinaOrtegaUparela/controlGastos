@@ -12,7 +12,6 @@ import lombok.ToString;
 public class SubCategory {
     private Long id;
     private String subCategoryName;
-    private Category category;
 
     public Long getId() {
         return id;
@@ -28,13 +27,5 @@ public class SubCategory {
 
     public void setSubCategoryName(String subCategoryName) {
         this.subCategoryName = subCategoryName;
-    }
-
-    public Category getCategory() {
-        return category;
-    }
-
-    public void setCategory(Category category) {
-        this.category = category;
     }
 }

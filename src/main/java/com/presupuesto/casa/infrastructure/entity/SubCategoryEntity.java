@@ -18,9 +18,6 @@ public class SubCategoryEntity {
     private Long id;
     private String subCategoryName;
 
-    @ManyToOne
-    @JoinColumn(name="category_id", nullable=false)
-    private CategoryEntity category;
 
     public Long getId() {
         return id;
@@ -38,11 +35,4 @@ public class SubCategoryEntity {
         this.subCategoryName = subCategoryName;
     }
 
-    public CategoryEntity getCategory() {
-        return category;
-    }
-
-    public void setCategory(CategoryEntity category) {
-        this.category = category;
-    }
 }

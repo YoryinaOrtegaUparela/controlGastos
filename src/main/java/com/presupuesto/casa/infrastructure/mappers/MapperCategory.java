@@ -17,6 +17,7 @@ public interface MapperCategory {
     Category categoryEntityToCategory(CategoryEntity categoryEntity);
     @Mapping(source = "subCategories", target = "subCategories")
     CategoryEntity categoryToCategoryEntity(Category category);
+
     SubCategory subCategoryEntityToSubCategory(SubCategoryEntity subCategoryEntity);
     SubCategoryEntity subCategoryToSubCategoryEntity(SubCategory subCategory);
 }

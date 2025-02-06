@@ -22,7 +22,7 @@ public class CategoryEntity {
 
     private String categoryName;
 
-    @OneToMany(mappedBy="category")
+    @OneToMany(mappedBy="subCategoryName")
     private Set<SubCategoryEntity> subCategories;
 
     public Long getCategoryId() {
