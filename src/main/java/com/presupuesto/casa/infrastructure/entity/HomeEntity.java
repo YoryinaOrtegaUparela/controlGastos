@@ -1,10 +1,7 @@
 package com.presupuesto.casa.infrastructure.entity;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.*;
 
 @Table(name = "HomeEntity",schema = "EXPENSES")
 @Entity
@@ -12,6 +9,8 @@ import lombok.ToString;
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
+@Setter
+@Getter
 public class HomeEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -19,27 +18,4 @@ public class HomeEntity {
     private String name;
     private Long personId;
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public Long getHomeId() {
-        return homeId;
-    }
-
-    public void setHomeId(Long homeId) {
-        this.homeId = homeId;
-    }
-
-    public Long getPersonId() {
-        return personId;
-    }
-
-    public void setPersonId(Long personId) {
-        this.personId = personId;
-    }
 }

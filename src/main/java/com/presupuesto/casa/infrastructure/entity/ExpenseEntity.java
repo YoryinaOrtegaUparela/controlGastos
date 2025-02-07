@@ -1,10 +1,7 @@
 package com.presupuesto.casa.infrastructure.entity;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.*;
 
 import java.time.LocalDate;
 
@@ -14,6 +11,8 @@ import java.time.LocalDate;
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
+@Setter
+@Getter
 public class ExpenseEntity {
 
     @Id
@@ -38,75 +37,5 @@ public class ExpenseEntity {
 
     private Boolean isDivisible;
 
-    public CategoryEntity getCategory() {
-        return category;
-    }
 
-    public void setCategory(CategoryEntity category) {
-        this.category = category;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public HomeEntity getHomeId() {
-        return homeId;
-    }
-
-    public void setHomeId(HomeEntity homeId) {
-        this.homeId = homeId;
-    }
-
-    public LocalDate getExecuteExpenseDate() {
-        return executeExpenseDate;
-    }
-
-    public void setExecuteExpenseDate(LocalDate executeExpenseDate) {
-        this.executeExpenseDate = executeExpenseDate;
-    }
-
-    public Long getAmount() {
-        return amount;
-    }
-
-    public void setAmount(Long amount) {
-        this.amount = amount;
-    }
-
-    public Long getPersonId() {
-        return personId;
-    }
-
-    public void setPersonId(Long identifierUser) {
-        this.personId = identifierUser;
-    }
-
-    public Boolean getFixedExpense() {
-        return fixedExpense;
-    }
-
-    public void setFixedExpense(Boolean fixedExpense) {
-        this.fixedExpense = fixedExpense;
-    }
-
-    public String getResource() {
-        return resource;
-    }
-
-    public void setResource(String resource) {
-        this.resource = resource;
-    }
-
-    public Boolean getIsDivisible() {
-        return isDivisible;
-    }
-
-    public void setIsDivisible(Boolean divisible) {
-        isDivisible = divisible;
-    }
 }

@@ -2,6 +2,7 @@ package com.presupuesto.casa.infrastructure.adapters;
 
 import com.presupuesto.casa.application.usecases.ports.output.CategoryPort;
 import com.presupuesto.casa.domain.models.Category;
+import com.presupuesto.casa.infrastructure.entity.CategoryEntity;
 import com.presupuesto.casa.infrastructure.mappers.MapperCategory;
 import com.presupuesto.casa.infrastructure.repository.CategoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,14 +22,20 @@ public class CategoryImpl implements CategoryPort {
 
     @Override
     public List<Category> getCategories() {
-        return mapperCategory.categoryListToCategory(categoryRepository.findAll());
-
+      //  return mapperCategory.categoryListToCategory(categoryRepository.findAll());
+return null;
     }
 
     @Override
     public Category saveCategory(Category category) {
-        return mapperCategory.categoryEntityToCategory(
-                categoryRepository.save(mapperCategory.categoryToCategoryEntity(category)));
+
+        CategoryEntity categoryEntity = mapperCategory.categoryToCategoryEntity(category);
+
+        CategoryEntity categoryCreated = categoryRepository.save(categoryEntity);
+
+
+      return   mapperCategory.categoryEntityToCategory(categoryCreated);
+
     }
 
     @Override

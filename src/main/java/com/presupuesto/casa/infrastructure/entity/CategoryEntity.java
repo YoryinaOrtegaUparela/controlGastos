@@ -1,10 +1,7 @@
 package com.presupuesto.casa.infrastructure.entity;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.*;
 
 import java.util.Set;
 
@@ -14,6 +11,8 @@ import java.util.Set;
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
+@Setter
+@Getter
 public class CategoryEntity {
 
     @Id
@@ -22,30 +21,5 @@ public class CategoryEntity {
 
     private String categoryName;
 
-    @OneToMany(mappedBy="subCategoryName")
-    private Set<SubCategoryEntity> subCategories;
 
-    public Long getCategoryId() {
-        return categoryId;
-    }
-
-    public void setCategoryId(Long categoryId) {
-        this.categoryId = categoryId;
-    }
-
-    public String getCategoryName() {
-        return categoryName;
-    }
-
-    public void setCategoryName(String categoryName) {
-        this.categoryName = categoryName;
-    }
-
-    public Set<SubCategoryEntity> getSubCategories() {
-        return subCategories;
-    }
-
-    public void setSubCategories(Set<SubCategoryEntity> subCategory) {
-        this.subCategories = subCategory;
-    }
 }

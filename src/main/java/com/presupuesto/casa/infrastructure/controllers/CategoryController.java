@@ -3,7 +3,9 @@ package com.presupuesto.casa.infrastructure.controllers;
 import com.presupuesto.casa.application.usecases.ports.input.category.DeleteCategoryService;
 import com.presupuesto.casa.application.usecases.ports.input.category.GetCategoryService;
 import com.presupuesto.casa.application.usecases.ports.input.category.SaveCategoryService;
+import com.presupuesto.casa.application.usecases.ports.input.subcategory.SaveSubCategoryService;
 import com.presupuesto.casa.domain.models.Category;
+import com.presupuesto.casa.domain.models.SubCategory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -23,6 +25,9 @@ public class CategoryController {
     private SaveCategoryService saveCategoryService;
 
     @Autowired
+    private SaveSubCategoryService saveSubCategoryService;
+
+    @Autowired
     private DeleteCategoryService deleteCategoryService;
 
     @GetMapping(produces = "application/json")
@@ -37,6 +42,14 @@ public class CategoryController {
     public ResponseEntity<Category> saveCategory(@RequestBody Category category) {
 
         Category categorySaved = saveCategoryService.saveCategory(category);
+
+        return new ResponseEntity<>(categorySaved, HttpStatus.OK);
+    }
+
+    @PostMapping(path = "/subcategory", produces = "application/json")
+    public ResponseEntity<SubCategory> saveSubCategory(@RequestBody SubCategory category) {
+
+        SubCategory categorySaved = saveSubCategoryService.saveSubCategory(category);
 
         return new ResponseEntity<>(categorySaved, HttpStatus.OK);
     }
