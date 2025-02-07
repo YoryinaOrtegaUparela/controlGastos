@@ -31,10 +31,11 @@ return null;
 
         CategoryEntity categoryEntity = mapperCategory.categoryToCategoryEntity(category);
 
-        CategoryEntity categoryCreated = categoryRepository.save(categoryEntity);
+        CategoryEntity categoryCreatedEntity = categoryRepository.save(categoryEntity);
 
 
-      return   mapperCategory.categoryEntityToCategory(categoryCreated);
+        Category categoryCreated = mapperCategory.categoryEntityToCategory(categoryCreatedEntity);
+        return categoryCreated;
 
     }
 

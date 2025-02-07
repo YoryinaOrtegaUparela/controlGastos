@@ -13,6 +13,5 @@ import java.util.List;
 public class SubCategory {
     private Long id;
     private String subCategoryName;
-    private Long idCategory;
 
 }

@@ -19,8 +19,9 @@ public class SubcategoryImpl implements SubcategoryPort {
 
     @Override
     public SubCategory saveCategory(SubCategory category) {
-        SubCategoryEntity subCategoryEntity = mapperCategory.subCategoryToSubCategoryEntity(category);
-        SubCategoryEntity save = subcategoryRepository.save(subCategoryEntity);
-        return mapperCategory.subCategoryEntityToSubCategory(save);
+//        SubCategoryEntity subCategoryEntity = mapperCategory.subCategoryToSubCategoryEntity(category);
+//        SubCategoryEntity save = subcategoryRepository.save(subCategoryEntity);
+//        return mapperCategory.subCategoryEntityToSubCategory(save);
+        return null;
     }
 }

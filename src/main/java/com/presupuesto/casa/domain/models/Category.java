@@ -13,5 +13,6 @@ import java.util.List;
 public class Category {
     private Long categoryId;
     private String categoryName;
+    private List<SubCategory> subCategories;
 
 }

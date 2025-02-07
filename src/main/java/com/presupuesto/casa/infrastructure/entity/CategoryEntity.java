@@ -3,6 +3,7 @@ package com.presupuesto.casa.infrastructure.entity;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.List;
 import java.util.Set;
 
 @Table(name = "CategoryEntity",schema = "EXPENSES")
@@ -20,6 +21,10 @@ public class CategoryEntity {
     private Long categoryId;
 
     private String categoryName;
+
+    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinColumn(name = "categoria_fk_pispastongeo")
+    private List<SubCategoryEntity> subCategoryEntities;
 
 
 }
