@@ -20,8 +20,10 @@ public class ExpenseImpl implements ExpensePort {
     private ExpenseRepository expenseRepository;
 
     @Override
-    public List<Expense> getExpensesByHomeIdForDate(Long homeId, LocalDate initDate, LocalDate endDate) {
-        return List.of();
+    public List<Expense> getExpensesForDate(LocalDate initDate, LocalDate endDate) {
+        List<ExpenseEntity> expenseEntityList = expenseRepository.findByExecuteExpenseDateBetween(initDate, endDate);
+
+        return expenseMapper.entitiesToExpenses(expenseEntityList);
     }
 
     @Override
@@ -34,5 +36,6 @@ public class ExpenseImpl implements ExpensePort {
 
     @Override
     public void deleteExpense(Long id) {
+        expenseRepository.deleteById(id);
     }
 }

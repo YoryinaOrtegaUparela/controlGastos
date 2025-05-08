@@ -6,7 +6,7 @@ import java.util.List;
 
 
 public interface ExpensePort {
-    List<Expense> getExpensesByHomeIdForDate(Long homeId, LocalDate initDate, LocalDate endDate);
+    List<Expense> getExpensesForDate(LocalDate initDate, LocalDate endDate);
     Expense saveExpense(Expense expense);
     void deleteExpense(Long id);
 }
