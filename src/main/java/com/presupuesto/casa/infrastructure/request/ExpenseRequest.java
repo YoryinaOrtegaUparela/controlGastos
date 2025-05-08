@@ -3,12 +3,12 @@ package com.presupuesto.casa.infrastructure.request;
 import lombok.*;
 import java.time.LocalDate;
 
-@Getter
-@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
 @ToString
+@Getter
+@Setter
 public class ExpenseRequest {
     private LocalDate executeExpenseDate;
     private Long amount;

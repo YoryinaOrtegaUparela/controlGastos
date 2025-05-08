@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 import lombok.*;
 import java.time.LocalDate;
 
-@Table(name = "ExpenseEntity",schema = "EXPENSES")
+@Table(name = "EXPENSE",schema = "EXPENSES")
 @Entity
 @Builder
 @ToString

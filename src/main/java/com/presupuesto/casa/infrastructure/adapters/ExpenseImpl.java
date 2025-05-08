@@ -16,6 +16,7 @@ public class ExpenseImpl implements ExpensePort {
     @Autowired
     private ExpenseMapper expenseMapper;
 
+    @Autowired
     private ExpenseRepository expenseRepository;
 
     @Override
