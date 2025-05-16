@@ -8,6 +8,8 @@ import com.presupuesto.casa.infrastructure.repository.CategoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class CategoryImpl implements CategoryPort {
 
@@ -18,9 +20,20 @@ public class CategoryImpl implements CategoryPort {
     private CategoryMapper categoryMapper;
 
     @Override
+    public List<Category> getCategories() {
+        List<CategoryEntity> categoryEntityList = categoryRepository.findAll();
+        return categoryMapper.entitiesToCategories(categoryEntityList);
+    }
+
+    @Override
     public Category saveCategory(Category category) {
         CategoryEntity categoryEntity = categoryMapper.toEntity(category);
         CategoryEntity categorySaved = categoryRepository.save(categoryEntity);
         return categoryMapper.entityToCategory(categorySaved);
+    }
+
+    @Override
+    public void deleteCategory(Long categoryId) {
+        categoryRepository.deleteById(categoryId);
     }
 }

@@ -10,5 +10,4 @@ import lombok.*;
 @ToString
 public class CategoryRequest {
     private String category;
-    private String subCategory;
 }

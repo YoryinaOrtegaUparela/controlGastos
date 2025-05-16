@@ -11,5 +11,4 @@ import lombok.*;
 public class Category {
     private Long id;
     private String category;
-    private String subCategory;
 }
