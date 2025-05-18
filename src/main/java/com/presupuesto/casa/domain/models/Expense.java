@@ -16,4 +16,5 @@ public class Expense {
     private Boolean fixedExpense;
     private String resource;
     private Boolean isDivisible;
+    private Category category;
 }

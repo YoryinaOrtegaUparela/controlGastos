@@ -1,5 +1,6 @@
 package com.presupuesto.casa.infrastructure.entity;
 
+import com.presupuesto.casa.domain.models.Category;
 import jakarta.persistence.*;
 import lombok.*;
 import java.time.LocalDate;
@@ -21,4 +22,7 @@ public class ExpenseEntity {
     private Boolean fixedExpense;
     private String resource;
     private Boolean isDivisible;
+    @ManyToOne
+    @JoinColumn(name = "id")
+    private CategoryEntity category;
 }
