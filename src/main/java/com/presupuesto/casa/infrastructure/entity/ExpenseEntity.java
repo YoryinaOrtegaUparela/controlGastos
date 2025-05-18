@@ -15,14 +15,15 @@ import java.time.LocalDate;
 @Getter
 public class ExpenseEntity {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private LocalDate executeExpenseDate;
     private Long amount;
     private Boolean fixedExpense;
     private String resource;
     private Boolean isDivisible;
+
     @ManyToOne
-    @JoinColumn(name = "id")
+    @JoinColumn(name = "idCategory")
     private CategoryEntity category;
 }
