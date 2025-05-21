@@ -14,6 +14,7 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 
+@CrossOrigin
 @RestController
 @RequestMapping("/expense")
 public class
