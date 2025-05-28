@@ -1,4 +1,4 @@
-package com.presupuesto.casa.domain.models;
+package com.presupuesto.casa.infrastructure.response;
 
 import lombok.*;
 
@@ -8,7 +8,7 @@ import lombok.*;
 @AllArgsConstructor
 @Builder
 @ToString
-public class Category {
+public class CategoryResponse {
     private Long id;
     private String category;
 }

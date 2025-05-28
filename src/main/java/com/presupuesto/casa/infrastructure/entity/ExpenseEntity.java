@@ -1,5 +1,6 @@
 package com.presupuesto.casa.infrastructure.entity;
 
+import com.presupuesto.casa.domain.models.Category;
 import jakarta.persistence.*;
 import lombok.*;
 import java.time.LocalDate;
@@ -14,11 +15,15 @@ import java.time.LocalDate;
 @Getter
 public class ExpenseEntity {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private LocalDate executeExpenseDate;
     private Long amount;
     private Boolean fixedExpense;
     private String resource;
     private Boolean isDivisible;
+
+    @ManyToOne
+    @JoinColumn(name = "idCategory")
+    private CategoryEntity category;
 }

@@ -1,5 +1,6 @@
 package com.presupuesto.casa.infrastructure.response;
 
+import com.presupuesto.casa.domain.models.Category;
 import lombok.*;
 import java.time.LocalDate;
 
@@ -16,4 +17,5 @@ public class ExpenseResponse {
     private Boolean fixedExpense;
     private String resource;
     private Boolean isDivisible;
+    private Category category;
 }
