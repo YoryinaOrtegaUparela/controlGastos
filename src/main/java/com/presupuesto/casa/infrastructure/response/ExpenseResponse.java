@@ -1,4 +1,4 @@
-package com.presupuesto.casa.domain.models;
+package com.presupuesto.casa.infrastructure.response;
 
 import lombok.*;
 import java.time.LocalDate;
@@ -9,7 +9,7 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @Builder
 @ToString
-public class Expense {
+public class ExpenseResponse {
     private Long id;
     private LocalDate executeExpenseDate;
     private Long amount;
