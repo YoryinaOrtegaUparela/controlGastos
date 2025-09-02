@@ -35,9 +35,22 @@ ExpenseController {
     public ResponseEntity<List<ExpenseResponse>> getExpenses(
             @RequestParam(required = false) String initDate,
             @RequestParam(required = false) String endDate) {
+
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-        LocalDate initDateTime = LocalDate.parse(initDate, formatter);
-        LocalDate endDateTime = LocalDate.parse(endDate, formatter);
+
+        LocalDate initDateTime;
+        LocalDate endDateTime;
+        try {
+            initDateTime = LocalDate.parse(initDate, formatter);
+        } catch (Exception e) {
+            initDateTime = LocalDate.now().withDayOfMonth(1);
+        }
+
+        try {
+            endDateTime = LocalDate.parse(endDate, formatter);
+        } catch (Exception e) {
+            endDateTime = LocalDate.now();
+        }
 
         List<ExpenseResponse> expenses = getExpenseService.getExpensesForDate(initDateTime, endDateTime);
 
