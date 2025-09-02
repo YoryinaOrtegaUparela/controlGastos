@@ -5,6 +5,7 @@ import com.presupuesto.casa.application.usecases.ports.input.expense.GetExpenseS
 import com.presupuesto.casa.application.usecases.ports.input.expense.SaveExpenseService;
 import com.presupuesto.casa.infrastructure.request.ExpenseRequest;
 import com.presupuesto.casa.infrastructure.response.ExpenseResponse;
+import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -58,7 +59,7 @@ ExpenseController {
     }
 
     @PostMapping(produces = "application/json")
-    public ResponseEntity<ExpenseResponse> saveExpense(@RequestBody ExpenseRequest expenseRequest) {
+    public ResponseEntity<ExpenseResponse> saveExpense(@Valid @RequestBody ExpenseRequest expenseRequest) {
 
         ExpenseResponse expenseSaved = saveExpenseService.saveExpense(expenseRequest);
         log.info("Expense saved: {}", expenseSaved);

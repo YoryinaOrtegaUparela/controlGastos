@@ -5,14 +5,10 @@ import com.presupuesto.casa.application.usecases.ports.input.category.GetCategor
 import com.presupuesto.casa.application.usecases.ports.input.category.SaveCategoryService;
 import com.presupuesto.casa.infrastructure.request.CategoryRequest;
 import com.presupuesto.casa.infrastructure.response.CategoryResponse;
-import com.presupuesto.casa.infrastructure.response.ExpenseResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 @CrossOrigin
