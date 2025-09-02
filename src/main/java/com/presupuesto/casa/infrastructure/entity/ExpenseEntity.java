@@ -15,7 +15,7 @@ import java.time.LocalDate;
 @Getter
 public class ExpenseEntity {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private LocalDate executeExpenseDate;
     private Long amount;

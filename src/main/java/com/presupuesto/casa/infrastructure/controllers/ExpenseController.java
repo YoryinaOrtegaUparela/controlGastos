@@ -5,6 +5,7 @@ import com.presupuesto.casa.application.usecases.ports.input.expense.GetExpenseS
 import com.presupuesto.casa.application.usecases.ports.input.expense.SaveExpenseService;
 import com.presupuesto.casa.infrastructure.request.ExpenseRequest;
 import com.presupuesto.casa.infrastructure.response.ExpenseResponse;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,6 +15,7 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 
+@Slf4j
 @CrossOrigin
 @RestController
 @RequestMapping("/expense")
@@ -46,7 +48,7 @@ ExpenseController {
     public ResponseEntity<ExpenseResponse> saveExpense(@RequestBody ExpenseRequest expenseRequest) {
 
         ExpenseResponse expenseSaved = saveExpenseService.saveExpense(expenseRequest);
-
+        log.info("Expense saved: {}", expenseSaved);
         return new ResponseEntity<>(expenseSaved, HttpStatus.OK);
     }
 
