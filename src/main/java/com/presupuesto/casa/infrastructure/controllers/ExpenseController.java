@@ -5,6 +5,7 @@ import com.presupuesto.casa.application.usecases.ports.input.expense.GetExpenseS
 import com.presupuesto.casa.application.usecases.ports.input.expense.SaveExpenseService;
 import com.presupuesto.casa.infrastructure.request.ExpenseRequest;
 import com.presupuesto.casa.infrastructure.response.ExpenseResponse;
+import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -35,9 +36,22 @@ ExpenseController {
     public ResponseEntity<List<ExpenseResponse>> getExpenses(
             @RequestParam(required = false) String initDate,
             @RequestParam(required = false) String endDate) {
+
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-        LocalDate initDateTime = LocalDate.parse(initDate, formatter);
-        LocalDate endDateTime = LocalDate.parse(endDate, formatter);
+
+        LocalDate initDateTime;
+        LocalDate endDateTime;
+        try {
+            initDateTime = LocalDate.parse(initDate, formatter);
+        } catch (Exception e) {
+            initDateTime = LocalDate.now().withDayOfMonth(1);
+        }
+
+        try {
+            endDateTime = LocalDate.parse(endDate, formatter);
+        } catch (Exception e) {
+            endDateTime = LocalDate.now();
+        }
 
         List<ExpenseResponse> expenses = getExpenseService.getExpensesForDate(initDateTime, endDateTime);
 
@@ -45,7 +59,7 @@ ExpenseController {
     }
 
     @PostMapping(produces = "application/json")
-    public ResponseEntity<ExpenseResponse> saveExpense(@RequestBody ExpenseRequest expenseRequest) {
+    public ResponseEntity<ExpenseResponse> saveExpense(@Valid @RequestBody ExpenseRequest expenseRequest) {
 
         ExpenseResponse expenseSaved = saveExpenseService.saveExpense(expenseRequest);
         log.info("Expense saved: {}", expenseSaved);
