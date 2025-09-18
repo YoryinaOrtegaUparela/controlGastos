@@ -6,6 +6,7 @@ import com.presupuesto.casa.application.usecases.ports.input.category.SaveCatego
 import com.presupuesto.casa.infrastructure.request.CategoryRequest;
 import com.presupuesto.casa.infrastructure.response.CategoryResponse;
 import com.presupuesto.casa.infrastructure.response.ExpenseResponse;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,6 +16,7 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 
+@Slf4j
 @CrossOrigin
 @RestController
 @RequestMapping("/category")
@@ -39,8 +41,11 @@ public class CategoryController {
 
     @PostMapping(produces = "application/json")
     public ResponseEntity<CategoryResponse> saveCategory(@RequestBody CategoryRequest categoryRequest) {
+        log.info("CategoryRequest: {}", categoryRequest.toString());
 
         CategoryResponse categorySaved = saveCategoryService.saveCategory(categoryRequest);
+
+        log.info("categorySaved: {}", categorySaved.toString());
 
         return new ResponseEntity<>(categorySaved, HttpStatus.OK);
     }
@@ -48,6 +53,7 @@ public class CategoryController {
     @ResponseStatus(HttpStatus.NO_CONTENT)
     @DeleteMapping("/{categoryId}")
     public void deleteCategory(@PathVariable Long categoryId) {
+        log.info("categoryId: {}", categoryId);
         deleteCategoryService.deleteCategory(categoryId);
     }
 }
